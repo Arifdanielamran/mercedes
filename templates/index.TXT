@@ -1,0 +1,69 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE TITLE</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container-adjustment">
+        <img src="/static/images/amg2.jpg" alt="amg logo" width="250" height="200" class="lefted-image">
+        <img src="/static/images/logo.jpg" alt="Mercedes-Benz logo" width="100" height="100" class="Righted-image">
+    </div>
+
+    <div id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about us">Our History</a>
+        <a href="#contact us">Contact Us</a>
+    </div>
+
+    <h1>Automotive Checksheet</h1>
+    <form id="issueForm" action="/add_issue" method="post">
+        <label for="car-model">Select Car Model:</label>
+        <select id="car-model" name="car-model">
+            <optgroup label="W214">
+                <option value="E200">E200</option>
+                <option value="E350E">E350E</option>
+            </optgroup>
+            <optgroup label="V223">
+                <option value="S580E">S580E</option>
+            </optgroup>
+            <optgroup label="W206">
+                <option value="C200">C200</option>
+                <option value="C300">C300</option>
+                <option value="C350e">C350e</option>  
+                <option value="C43">C43</option>
+            </optgroup>
+            <optgroup label="C254">
+                <option value="GLC350E">GLC350E</option>
+                <option value="GLC43">GLC43</option>
+            </optgroup>
+            <optgroup label="X254">
+                <option value="GLC350E">GLC350E</option>
+            </optgroup>
+            <optgroup label="V177">
+                <option value="A200">A200</option> 
+                <option value="A250">A250</option>
+                <option value="A35">A35</option>
+            </optgroup>
+            <optgroup label="H247">
+                <option value="GLA250">GLA 250</option> 
+                <option value="GLA35">GLA 35</option>
+                <option value="GLA200">GLA 200</option>
+            </optgroup>
+            <optgroup label="V167">
+                <option value="GLE450">GLE 450</option> 
+            </optgroup>
+        </select>
+        <input type="text" id="issueDescription" name="issueDescription" placeholder="Issue Description" required>
+        <button type="submit">Add Issue</button>
+    </form>
+
+    <h2 style= text-align:center;font-size:30px> Car Issues</h2>
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+</body>
+</html>
+-->

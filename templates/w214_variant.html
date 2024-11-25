@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE TITLE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container-adjustment">
+        <img src="{{ url_for('static', filename='images/amg2.jpg') }}" alt="amg logo" width="250" height="200" class="lefted-image">
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Mercedes-Benz logo" width="100" height="100" class="righted-image">
+    </div>
+
+    <div id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about us">Our History</a>
+        <a href="#contact us">Contact Us</a>
+    </div>
+
+    <h1>Automotive Checksheet</h1>
+    <button onclick="fetchData()">Fetch Data</button>
+    <table id="data-table" border="1">
+        <!-- Data will be inserted here -->
+    </table>
+    <progress id="progress-bar" value="0" max="100"></progress>
+
+    <script>
+        async function fetchData() {
+            try {
+                const columns = ['ProcessNumber', 'ProcessName', 'ReleasedStatus', 'Station', 'Line'];
+                const rows = Array.from({ length: 20 }, (_, i) => i);
+                for (let i = 0; i < rows.length; i++) {
+                    rows[i] = rows[i] * 2;
+                }
+
+                console.log(rows);
+
+                const response = await fetch('/get_data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ columns, rows })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                displayData(data);
+            } catch (error) {
+                console.error('Fetch data failed:', error);
+                alert('Failed to fetch data.');
+            }
+        }
+
+        function displayData(data) {
+            const table = document.getElementById('data-table');
+            table.innerHTML = '';
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                Object.values(row).forEach(cell => {
+                    const td = document.createElement('td');
+                    td.textContent = cell;
+                    tr.appendChild(td);
+                });
+
+                // Create a checkbox cell
+                const checkboxTd = document.createElement('td');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.classList.add('checklist-item');
+                checkbox.addEventListener('change', updateProgressBar);
+                checkboxTd.appendChild(checkbox);
+                tr.appendChild(checkboxTd);
+
+                table.appendChild(tr);
+            });
+
+            // Update progress bar after displaying data
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const checklistItems = document.querySelectorAll('.checklist-item');
+            const progressBar = document.getElementById('progress-bar');
+            const totalItems = checklistItems.length;
+            const checkedItems = document.querySelectorAll('.checklist-item:checked').length;
+            const progress = (checkedItems / totalItems) * 100;
+            progressBar.value = progress;
+        }
+
+
+        function remarksdate() {
+            
+            
+
+
+        }
+
+
+
+        // Initial update in case some items are already checked
+        updateProgressBar();
+    </script>
+</body>
+</html>

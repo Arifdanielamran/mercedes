@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CS3 PRODUCTION AUDIT FORM</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+    <div class="main-block">
+        <nav class="tab-menu">
+            <ul>
+                <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+                <li><a href="report_history.html"><i class="fas fa-history"></i> Report History</a></li>
+                <li><a href="profile_setting.html"><i class="fas fa-user-cog"></i> Profile Setting</a></li>
+                <li><a href="admin.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+            </ul>
+        </nav>
+        
+        <h1>Issue Reporting</h1>
+        <form action="submit_issue.php" method="post">
+            <hr>
+            <div class="form-group full-width">
+                <label id="icon" for="model"><i class="fas fa-cogs"></i></label>
+                <select id="model" name="model" placeholder="Model" required onchange="updateVariants()">
+                    <option value="" disabled selected>Select Model</option>
+                    <option value="v167">V167</option>
+                    <option value="v177">V177</option>
+                    <option value="c254">C254</option>
+                    <option value="x254">X254</option>
+                    <option value="h247">H247</option>
+                    <option value="v223">V223</option>
+                    <option value="w214">W214</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label id="icon" for="variant"><i class="fas fa-car"></i></label>
+                <select id="variant" name="variant" placeholder="Variant" required>
+                    <option value="" disabled selected>Select Variant</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label id="icon" for="comm_no"><i class="fas fa-hashtag"></i></label>
+                <input type="text" id="comm_no" name="comm_no" placeholder="Comm No" required>
+            </div>
+            <div class="form-group">
+                <label id="icon" for="fault_prior"><i class="fas fa-exclamation-triangle"></i></label>
+                <select id="fault_prior" name="fault_prior" required>
+                    <option value="" disabled selected>Fault Priority</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label id="icon" for="fault_type"><i class="fas fa-bug"></i></label>
+                <input type="text" id="fault_type" name="fault_type" placeholder="Fault Type" required>
+            </div>
+            <div class="form-group">
+                <label id="icon" for="fault_desc"><i class="fas fa-align-left"></i></label>
+                <textarea id="fault_desc" name="fault_desc" rows="4" placeholder="Fault Description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label id="icon" for="cl"><i class="fas fa-list-ol"></i></label>
+                <select id="cl" name="cl" required>
+                    <option value="" disabled selected>CL</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label id="icon" for="person_in_charge"><i class="fas fa-user"></i></label>
+                <input type="text" id="person_in_charge" name="person_in_charge" placeholder="Person in Charge" required>
+            </div>
+            <div class="form-group">
+                <label id="icon" for="hyperlink"><i class="fas fa-link"></i></label>
+                <input type="url" id="hyperlink" name="hyperlink" placeholder="Hyperlink" required>
+            </div>
+            <div class="btn-block">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="home.js"></script>
+</body>
+</html>

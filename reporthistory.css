@@ -1,0 +1,145 @@
+html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: #666;
+    background-image: url('background.jpg'); /* Replace with your background image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background image fixed in place */
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: -1;
+}
+
+.main-block {
+    width: 90%; /* Increased width for better landscape viewing */
+    max-width: 1400px; /* Maximum width to ensure it doesn't get too wide */
+    min-height: 460px;
+    padding: 30px; /* Increased padding for better spacing */
+    margin: auto;
+    border-radius: 10px; /* Slightly increased border radius for a smoother look */
+    border: solid 1px #ccc;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for better readability */
+    position: relative;
+    z-index: 1;
+}
+
+.tab-menu {
+    margin-bottom: 20px;
+}
+
+.tab-menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background: #1c87c9;
+    border-radius: 5px;
+}
+
+.tab-menu ul li {
+    margin: 0;
+}
+
+.tab-menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.tab-menu ul li a:hover {
+    background: #26a9e0;
+}
+
+h1 {
+    padding: 20px 0; /* Increased padding for the heading */
+    font-size: 36px; /* Slightly larger font size for the heading */
+    font-weight: 300;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+a {
+    color: #1c87c9;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .main-block {
+        width: 95%; /* Adjust width for tablets */
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 28px; /* Adjust font size for tablets */
+    }
+
+    table, th, td {
+        font-size: 14px; /* Adjust font size for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-block {
+        width: 100%; /* Adjust width for mobile devices */
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px; /* Adjust font size for mobile devices */
+    }
+
+    table, th, td {
+        font-size: 12px; /* Adjust font size for mobile devices */
+    }
+}

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $model = $_POST['model'];
     $variant = $_POST['variant'];
@@ -22,4 +24,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Person in Charge: $person_in_charge<br>";
     echo "Hyperlink: $hyperlink<br>";
 }
+
 ?>

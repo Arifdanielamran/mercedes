@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // If all validations pass, submit the form
         form.submit();
+        window.location.href = 'index.html';
     });
 
     function validateEmail(email) {

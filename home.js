@@ -21,10 +21,5 @@ function updateVariants() {
                 variant.appendChild(option);
             });
         }
-
-        
-
-
-
     }
     
